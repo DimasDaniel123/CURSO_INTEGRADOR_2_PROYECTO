@@ -1128,11 +1128,10 @@
             <Component class="javax.swing.JComboBox" name="cbservicioNueva">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="3">
                     <StringItem index="0" value="Servicio"/>
-                    <StringItem index="1" value="CONSULTAS MEDICAS"/>
-                    <StringItem index="2" value="OBSTETRICIA"/>
-                    <StringItem index="3" value="ECOGRAF&#xcd;A"/>
+                    <StringItem index="1" value="consultas"/>
+                    <StringItem index="2" value="ecograf&#xed;a"/>
                   </StringArray>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
@@ -1178,6 +1177,8 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="com.toedter.calendar.JDateChooser" name="dcfechaNueva">
+            </Component>
             <Component class="javax.swing.JButton" name="btnguardarNueva">
               <Properties>
                 <Property name="text" type="java.lang.String" value="GUARDAR"/>
@@ -1185,8 +1186,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnguardarNuevaActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="dcfechaNueva">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>
@@ -1393,6 +1392,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxRol1ActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

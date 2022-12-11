@@ -113,6 +113,17 @@ public class Sistema extends javax.swing.JFrame {
         btnreceta.setModel(modelo);
 
     }
+       private void LimpiarCitas() {
+        txtnpacienteNueva.setText("");
+txtnombreNueva.setText("");
+txtdni.setText("");
+btnhoraNueva.setText("");
+txtfecha.setText("");
+txtconsultorioNueva.setText("");
+txtdoctorNueva.setText("");
+txaAnalisis.setText("");
+        btnguardarNueva.setEnabled(true);
+    }
     
       
       
@@ -242,8 +253,8 @@ txttelefonoReg.setText("");
         jLabel24 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txaAnalisis = new javax.swing.JTextArea();
-        btnguardarNueva = new javax.swing.JButton();
         dcfechaNueva = new com.toedter.calendar.JDateChooser();
+        btnguardarNueva = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         btnhoraNueva = new javax.swing.JTextField();
         txtnpacienteNueva = new javax.swing.JTextField();
@@ -752,7 +763,7 @@ txttelefonoReg.setText("");
 
         jLabel21.setText("Servicio:");
 
-        cbservicioNueva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Servicio", "CONSULTAS MEDICAS", "OBSTETRICIA", "ECOGRAFÍA" }));
+        cbservicioNueva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Servicio", "consultas", "ecografía" }));
         cbservicioNueva.setToolTipText("");
         cbservicioNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -909,6 +920,11 @@ txttelefonoReg.setText("");
         });
 
         cbxRol1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Asistente", "Doctor" }));
+        cbxRol1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxRol1ActionPerformed(evt);
+            }
+        });
 
         TableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1228,6 +1244,9 @@ txttelefonoReg.setText("");
 String dia = Integer.toString(dcfechaNueva.getCalendar().get(Calendar.DAY_OF_MONTH));
 String mes = Integer.toString(dcfechaNueva.getCalendar().get(Calendar.MONTH) + 1);
 String year = Integer.toString(dcfechaNueva.getCalendar().get(Calendar.YEAR));
+
+String servicio = cbservicioNueva.getSelectedItem().toString();      
+
 String fecha = (year + "-" + mes+ "-" + dia);
 txtfecha.setText(fecha);
 
@@ -1238,15 +1257,13 @@ txtfecha.setText(fecha);
             || !"".equals(txtdoctorNueva.getText())) 
           {
        
-
-
-            String servicio = cbservicioNueva.getSelectedItem().toString();      
+      
             ct.setServicio(servicio);
-            
+         
             ct.setId(Integer.parseInt(txtnpacienteNueva.getText()));
             ct.setNombre(txtnombreNueva.getText());
             ct.setFecha(txtfecha.getText());
-            
+
             ct.setHora(btnhoraNueva.getText());
             ct.setConsultorio(txtconsultorioNueva.getText());
             ct.setDoctor(txtdoctorNueva.getText());
@@ -1260,7 +1277,7 @@ txtfecha.setText(fecha);
             JOptionPane.showMessageDialog(null, "Los campos estan vacios");
         }
 
-        LimpiarPacientes();
+        LimpiarCitas();
         
  
         
@@ -1321,6 +1338,10 @@ txtfecha.setText(fecha);
     private void cbservicioNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbservicioNuevaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbservicioNuevaActionPerformed
+
+    private void cbxRol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxRol1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxRol1ActionPerformed
 
     /**
      * @param args the command line arguments
